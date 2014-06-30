@@ -4,6 +4,28 @@
 
 > This is a small project I practiced on [Professor Hua's](http://www.cs.stevens.edu/~ghua/) 2014 Spring [Computer Vision Class ](http://www.cs.stevens.edu/~ghua/ghweb/Teaching/CS558Spring2014.htm) at Stevens Institute of Technology.
 
+#### Corner Detection
+
+Load images and detect corners using the code from my [Corner Detection](https://github.com/wxue/Corner-Detection), which I improved here by adding local maximum.
+
+#### Extract Patches
+
+To extract patches (by 5*5), and form a descriptor simply by vectorizing the image pixel value in raster scan order. Store data in “Patches_left” and “Patches_right”.
+
+#### Get Fundamental Matrix
+
+* Make pairs and imply the corre2 function to evaluate the correlation, and select pairs with lager correlation.
+
+* Filter the pairs to make sure each point in one image only be paired with one point in another image.
+
+* Imply 8 point RANSAC 10 times as an example(30~50 would be better. I choose 10 only for running time sake).
+
+* Let the obtain fundamental matrix test all the paired points, evaluate its weights.
+
+* Use the obtained fundamental matrix to select the correlation pairs once again. 
+
+* Run 8 point RANSAC again to get a better fundamental matrix.
+
 ### License
 
 The MIT License (MIT)
